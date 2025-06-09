@@ -1,0 +1,35 @@
+.main-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20;
+    width: 100%;
+    margin-top: 80px;
+    margin-left: 80px;
+    margin-right: 80px;
+    border: 1px black;
+}
+.img {
+    width: 100%;
+    height: 100%;
+}
+.main-block__text-content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+.h1 {
+    display: block;
+    width: 100%;
+    font-family: 'Forum' serif;
+    font-size: 80px;
+    line-height: 1;
+    font-weight: 400;
+}
+.paragraph {
+    display: block;
+    width: 100%;
+    font-family: 'Forum' serif;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 400;
+}
