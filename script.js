@@ -1,49 +1,40 @@
 // === ACCORDEON ===
 document.addEventListener('DOMContentLoaded', function() {
-  const points = document.querySelectorAll('.info-block__point');
-
-  points.forEach(point => {
-    const question = point.querySelector('.info-block__question');
+  const toggleAccordion = (point) => {
     const answer = point.querySelector('.info-block__answer');
     const icon = point.querySelector('.accordeon__icon');
+    const isOpen = answer.classList.contains('open');
 
-    question.addEventListener('click', function() {
-      const isOpen = answer.classList.contains('open');
+    answer.style.height = isOpen ? '0px' : answer.scrollHeight + 'px';
+    answer.style.opacity = isOpen ? '0' : '1';
+    icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
+    
+    if (isOpen) {
+      answer.classList.remove('open');
+    } else {
+      answer.classList.add('open');
+      const handler = (e) => {
+        if (e.propertyName === 'height') {
+          answer.style.height = 'auto';
+          answer.removeEventListener('transitionend', handler);
+        }
+      };
+      answer.addEventListener('transitionend', handler);
+    }
+  };
 
-      if (isOpen) {
-        answer.style.height = answer.scrollHeight + 'px';
-        requestAnimationFrame(() => {
-          answer.style.height = '0px';
-          answer.style.opacity = '0';
-        });
-        answer.classList.remove('open');
-        icon.style.transform = 'rotate(0deg)';
-      } else {
-
-        answer.style.height = answer.scrollHeight + 'px';
-        answer.style.opacity = '1';
-        answer.classList.add('open');
-
-        answer.addEventListener('transitionend', function handler(e) {
-          if (e.propertyName === 'height') {
-            answer.style.height = 'auto';
-            answer.removeEventListener('transitionend', handler);
-          }
-        });
-        icon.style.transform = 'rotate(45deg)';
-      }
-    });
+  document.querySelectorAll('.info-block__point').forEach(point => {
+    point.querySelector('.info-block__question').addEventListener('click', () => toggleAccordion(point));
   });
 });
 
 // === MODAL WINDOW «ADD TO CALENDAR» ===
 document.addEventListener('DOMContentLoaded', function() {
-  const openLinks = document.querySelectorAll('a[href="#calendar-popup"]');
   const popup = document.querySelector('.calendar-popup');
   const popupContent = popup.querySelector('.calendar-popup__content');
-  const closeBtn = popup.querySelector('.close');
+  const closePopup = () => popup.classList.remove('active');
 
-  openLinks.forEach(link => {
+  document.querySelectorAll('a[href="#calendar-popup"]').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       popup.classList.add('active');
@@ -51,39 +42,50 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  closeBtn.addEventListener('click', function() {
-    popup.classList.remove('active');
-  });
-
-  // Закрытие при клике на фон (.calendar-popup)
+  popup.querySelector('.close').addEventListener('click', closePopup);
   popup.addEventListener('click', function(e) {
-    // Если кликнули именно на .calendar-popup (а не на .calendar-popup__content)
-    if (!popupContent.contains(e.target)) {
-      popup.classList.remove('active');
-    }
+    if (!popupContent.contains(e.target)) closePopup();
   });
 });
 
 // === SOUND CONTROL ===
 document.addEventListener('DOMContentLoaded', function() {
   const audio = document.getElementById('background-music');
-  const soundControl = document.querySelector('.button-sound-control__icon');
-  let isPlaying = true;
+  const soundControl = document.querySelector('.button-sound-control');
+  const soundIcon = soundControl.querySelector('.button-sound-control__icon use');
+  let isPlaying = false;
 
-  // Старт автоматически
-  audio.play().catch(e => {
-    // Автоблокировка браузера — ждем взаимодействия
-    console.log('Автовоспроизведение заблокировано, ждём клика пользователя.');
-  });
-
-  document.querySelector('.button-sound-control').addEventListener('click', function() {
-    if (isPlaying) {
-      audio.pause();
-      soundControl.querySelector('use').setAttribute('href', '#icon-play');
-    } else {
+  const toggleAudio = (play) => {
+    if (play) {
       audio.play();
-      soundControl.querySelector('use').setAttribute('href', '#icon-pause');
+      soundIcon.setAttribute('href', '#icon-pause');
+      isPlaying = true;
+    } else {
+      audio.pause();
+      soundIcon.setAttribute('href', '#icon-play');
+      isPlaying = false;
     }
-    isPlaying = !isPlaying;
+  };
+
+const unlockAudio = () => {
+  if (!isPlaying) {
+    toggleAudio(true);
+    const events = ['click', 'scroll', 'touchstart', 'keydown', 'mousemove'];
+    events.forEach(event => {
+      document.removeEventListener(event, unlockAudio);
+    });
+  }
+};
+
+const events = ['click', 'scroll', 'touchstart', 'keydown', 'mousemove'];
+events.forEach(event => {
+  document.addEventListener(event, unlockAudio, { once: true }); // { once: true } автоматически удалит обработчик после срабатывания
+});
+
+  document.addEventListener('click', unlockAudio);
+  soundControl.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleAudio(audio.paused);
   });
 });
+
