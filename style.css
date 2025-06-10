@@ -168,12 +168,12 @@ body{
 .info-block__answer {
     height: 0;
     overflow: hidden;
-    transition: height 0.3s ease;
+    transition: 0.3s ease;
 }
 .info-block__answer.open {
     height: auto;
     padding-bottom: 20px;
-    transition: 0.3s ease, padding-bottom 0.3s ease;
+    transition: 0.3s ease;
 }
 
 /* == MODAL WINDOW «ADD TO CALENDAR» == */
