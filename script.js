@@ -67,20 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-const unlockAudio = () => {
-  if (!isPlaying) {
-    toggleAudio(true);
-    const events = ['click', 'scroll', 'touchstart', 'keydown', 'mousemove'];
-    events.forEach(event => {
-      document.removeEventListener(event, unlockAudio);
-    });
-  }
-};
-
-const events = ['click', 'scroll', 'touchstart', 'keydown', 'mousemove'];
-events.forEach(event => {
-  document.addEventListener(event, unlockAudio, { once: true }); // { once: true } автоматически удалит обработчик после срабатывания
-});
+  const unlockAudio = () => {
+    if (!isPlaying) {
+      toggleAudio(true);
+      document.removeEventListener('click', unlockAudio);
+    }
+  };
 
   document.addEventListener('click', unlockAudio);
   soundControl.addEventListener('click', function(e) {
