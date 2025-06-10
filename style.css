@@ -1,35 +1,162 @@
-.main-block {
-    display: flex;
-    flex-direction: column;
-    gap: 20;
-    width: 100%;
-    margin-top: 80px;
-    margin-left: 80px;
-    margin-right: 80px;
-    border: 1px black;
+:root{
+    --primary-color: #47331F;
+    --primary-light: #E8D7C7;
+    --primary-gradient: linear-gradient(135deg, #47331F, #A68059);
 }
-.img {
-    width: 100%;
-    height: 100%;
-}
-.main-block__text-content {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-}
+
+/* == TYPOGRAPHY ==*/
 .h1 {
-    display: block;
-    width: 100%;
-    font-family: 'Forum' serif;
+    font-family: "Forum", sans-serif;
     font-size: 80px;
     line-height: 1;
-    font-weight: 400;
+    background: var(--primary-gradient);
+    background-clip: text;
+    color: transparent;
+}
+.h2 {
+    font-family: "Forum", sans-serif;
+    font-size: 50px;
+    line-height: 1.5;
+    background: var(--primary-gradient);
+    background-clip: text;
+    color: transparent;
 }
 .paragraph {
-    display: block;
-    width: 100%;
-    font-family: 'Forum' serif;
+    font-family: "Forum", sans-serif;
     font-size: 32px;
     line-height: 1.2;
     font-weight: 400;
+    color: var(--primary-color);
+}
+
+/* == BODY == */
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    background-color: var(--primary-light);
+    padding: 80px 0px;
+}
+
+/* == FIRST SCREEN == */
+.main-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20;
+    width: 1280px;
+    border: 1px solid black;
+}
+.main-block__text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 590px;
+    padding-left: 40px;
+}
+.main-block__title {
+    display: block;
+    width: 100%;
+}
+.main-block__text {
+    display: block;
+    max-width: 424px;
+}
+.img {
+    width: 629px;
+    height: 500px;
+}
+
+/* == INFO-CARDS == */
+.cards-block {
+    display: flex;
+    width: 1280px;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+}
+.info-card {
+    display: flex;
+    width: 630px;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 40px;
+    border: 1px solid black;
+}
+.info-card__title {
+    display: block;
+    width: 100%;
+}
+.info-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.info-card__point {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+.info-card__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 12px;
+    border: 1px solid black;
+    font-family: "Forum", sans-serif;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 400;
+    text-decoration: auto;
+    background: var(--primary-gradient);
+    background-clip: text;
+    color: transparent;
+}
+.info-card__button:hover {
+    background: var(--primary-gradient);
+    color: var(--primary-light);
+}
+.info-card__button:hover .button__icon path {
+    stroke: var(--primary-light);
+}
+
+/* == QUESTIONS == */
+.info-block{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 1280px;
+}
+.info-block__point {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid black;
+    cursor: pointer;
+}
+.info-block__point:last-child {
+    border-bottom: 1px solid black;
+}
+.info-block__question{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 0px;    
+}
+.button__icon {
+    transition: transform 0.3s ease;
+}
+.info-block__answer {
+    height: 0;
+    margin-top: 0px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+.info-block__answer.open {
+    height: auto;
+    padding-bottom: 20px;
+    transition: 0.3s ease;
 }

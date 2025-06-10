@@ -41,8 +41,73 @@
 
 <body>
 
-  <!-- Контент здесь -->
-  <div id="app"></div>
+  <div class="main-block">
+    <div class="main-block__text-content">
+      <div class="main-block__title h1">МИХАИЛ & ЕКАТЕРИНА</div>
+      <div class="main-block__text paragraph">Приглашаем вас на церемонию бракосочетания — разделите с нами этот важный момент.</div>
+    </div>
+    <img class="img" src="/images/main.jpg" alt="couple">
+  </div>
+
+  <div class="cards-block">
+    <div class="info-card">
+      <div class="info-card__title h2">ВРЕМЯ</div>
+      <div class="info-card__content">
+        <div class="info-card__point">
+          <img class="info-card__icon" src="/icons/icon-calendar.svg" alt="">
+          <div class="paragraph">18 июля 2025 года</div>
+        </div>
+        <div class="info-card__point">
+          <img class="info-card__icon" src="/icons/icon-time.svg" alt="">
+          <div class="paragraph">15:00 по МСК</div>         
+        </div>
+      </div>
+      <a class="info-card__button" href="yandex.ru" target="_blank">
+        <svg class="button__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 10H19M10 1V19" stroke="#47331F" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Добавить в календарь
+      </a>
+    </div>
+
+    <div class="info-card">
+      <div class="h2">МЕСТО</div>
+      <div class="info-card__content">
+        <div class="info-card__point">
+            <img class="info-card__icon" src="/icons/icon-location.svg" alt="">
+          <div class="paragraph">ЗАГС Кировского р-на</div>
+        </div>
+        <div class="info-card__point">
+          <img class="info-card__icon" src="/icons/icon-time.svg" alt="">
+          <div class="paragraph">Проспект Стачек, 45</div>         
+        </div>
+      </div>
+      <a class="info-card__button" href="https://yandex.ru/maps/?rtext=~59.885900,30.265221" target="_blank">
+        <svg class="button__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 10H19M19 10L10 1M19 10L10 19" stroke="#47331F" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Построить маршрут
+      </a>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div class="h2">ИНФОРМАЦИЯ</div>
+    <div class="info-block__content">
+      <div class="info-block__point">
+        <div class="info-block__question paragraph">Дресс-код<img class="button__icon" src="/icons/icon-plus.svg" alt=""></div>
+        <div class="info-block__answer paragraph">Свободный. Приходите в любой удобной одежде 🙂</div>  
+      </div>
+      <div class="info-block__point">
+        <div class="info-block__question paragraph">Программа мероприятия<img class="button__icon" src="/icons/icon-plus.svg" alt=""></div>
+        <div class="info-block__answer paragraph">Текст текст текст текст</div>  
+      </div>
+      <div class="info-block__point">
+        <div class="info-block__question paragraph">Пожелания<img class="button__icon" src="/icons/icon-plus.svg" alt=""></div>
+        <div class="info-block__answer paragraph">Текст текст текст текст</div>  
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
