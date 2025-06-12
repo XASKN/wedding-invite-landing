@@ -1,30 +1,56 @@
 // === ACCORDEON ===
 document.addEventListener('DOMContentLoaded', function() {
-  const toggleAccordion = (point) => {
+  const points = document.querySelectorAll('.info-block__point');
+
+  points.forEach(point => {
+    const question = point.querySelector('.info-block__question');
     const answer = point.querySelector('.info-block__answer');
     const icon = point.querySelector('.accordeon__icon');
-    const isOpen = answer.classList.contains('open');
 
-    answer.style.height = isOpen ? '0px' : answer.scrollHeight + 'px';
-    answer.style.opacity = isOpen ? '0' : '1';
-    icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
-    
-    if (isOpen) {
-      answer.classList.remove('open');
-    } else {
-      answer.classList.add('open');
-      const handler = (e) => {
-        if (e.propertyName === 'height') {
-          answer.style.height = 'auto';
-          answer.removeEventListener('transitionend', handler);
+    question.addEventListener('click', function() {
+      const isOpen = answer.classList.contains('open');
+
+      // Закрыть все кроме текущего
+      points.forEach(otherPoint => {
+        if (otherPoint !== point) {
+          const otherAnswer = otherPoint.querySelector('.info-block__answer');
+          const otherIcon = otherPoint.querySelector('.accordeon__icon');
+
+          otherAnswer.style.height = otherAnswer.scrollHeight + 'px';
+
+          requestAnimationFrame(() => {
+            otherAnswer.style.height = '0px';
+          });
+
+          otherAnswer.classList.remove('open');
+          otherIcon.style.transform = 'rotate(0deg)';
         }
-      };
-      answer.addEventListener('transitionend', handler);
-    }
-  };
+      });
 
-  document.querySelectorAll('.info-block__point').forEach(point => {
-    point.querySelector('.info-block__question').addEventListener('click', () => toggleAccordion(point));
+      // Открыть/закрыть текущий
+      if (!isOpen) {
+        answer.classList.add('open');
+        const height = answer.scrollHeight + 'px';
+        
+        answer.style.height = height;
+        icon.style.transform = 'rotate(45deg)';
+
+        const handler = (e) => {
+          if (e.propertyName === 'height') {
+            answer.style.height = '';
+            answer.removeEventListener('transitionend', handler);
+          }
+        };
+        answer.addEventListener('transitionend', handler);
+      } else {
+        answer.style.height = answer.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          answer.style.height = '0px';
+        });
+        answer.classList.remove('open');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    });
   });
 });
 

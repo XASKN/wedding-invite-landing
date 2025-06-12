@@ -6,50 +6,68 @@
 }
 
 /* == TYPOGRAPHY ==*/
-.h1 {
+h1 {
     font-family: "Forum", sans-serif;
-    font-size: 80px;
+    font-size: 4.5rem;
+    font-weight: 400;
     line-height: 1;
+    color: transparent;
     background: var(--primary-gradient);
     background-clip: text;
-    color: transparent;
+    margin: 0;
 }
-.h2 {
+h2 {
     font-family: "Forum", sans-serif;
-    font-size: 50px;
+    font-size: 3rem;
+    font-weight: 400;
     line-height: 1.5;
+    color: transparent;
     background: var(--primary-gradient);
     background-clip: text;
-    color: transparent;
+    margin: 0;
 }
-.label {
-    font-family: "Forum", sans-serif;
-    font-size: 24px;
+span {
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
     line-height: 1.2;
     color: var(--primary-color);
+    margin: 0;
 }
-.paragraph {
+p {
     font-family: "Inter", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 400;
     line-height: 1.5;
-    font-style: normal;
     color: var(--primary-color);
+    margin: 0;
+}
+a {
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-decoration: none;
+    color: var(--primary-color);
+    margin: 0;
+}
+a:hover{
+    color: var(--primary-light);
 }
 
 /* == ICONS ==*/
-.icon--xxl { width: 36px; height: 36px; }
-.icon--xl { width: 24px; height: 24px; }
-.icon--md { width: 18px; height: 20px; }
+.icon--xl { width: 36px; height: 36px; }
+.icon--md { width: 20px; height: 20px; }
 
 /* == BODY == */
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 60px auto 60px auto;
+    margin: 4rem auto 4rem auto;
     width: 90%;
     max-width: 1200px;
-    gap: 40px;
+    gap: 2.5rem;
     background-color: var(--primary-light);
 }
 
@@ -67,7 +85,7 @@ body{
     color: var(--primary-light);
 }
 .button-sound-control {
-    padding: 10px;
+    padding: 0.7rem;
 }
 
 /* == FIRST SCREEN == */
@@ -82,8 +100,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
-    padding-left: 40px;
+    gap: 1.5rem;
+    padding: 2.5rem;
 }
 .img {
     width: 50%;
@@ -98,44 +116,42 @@ body{
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    gap: 40px;
+    gap: 2.5rem;
 }
 .info-card {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 20px;
-    padding: 40px 40px;
+    gap: 1.5rem;
+    padding: 2.5rem 2.5rem;
     border: 1px solid var(--primary-color);
 }
 .info-card__content {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 1rem;
 }
 .info-card__point {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
 }
 .info-card__button {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    gap: 12px;
-    padding: 20px 12px;
+    margin-top: 1rem;
+    gap: 1rem;
+    padding: 1.2rem 1rem;
     border: 1px solid var(--primary-color);
-    text-decoration: auto;
 }
 .info-card__button:hover {
     background: var(--primary-gradient);
-    color: var(--primary-light);
     border: 1px solid var(--primary-light);
 }
-.info-card__button:hover .button__icon {
+.info-card__button.button__icon:hover {
     color: var(--primary-light);
 }
 
@@ -160,7 +176,7 @@ body{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0px;    
+    padding: 1.2rem 0px;    
 }
 .accordeon__icon {
     transition: transform 0.3s ease;
@@ -168,14 +184,12 @@ body{
 .info-block__answer {
     height: 0;
     overflow: hidden;
-    transition: 0.3s ease;
+    transition: height 0.4s;
 }
 .info-block__answer.open {
     height: auto;
-    padding-bottom: 20px;
-    transition: 0.3s ease;
+    padding: auto;
 }
-
 /* == MODAL WINDOW «ADD TO CALENDAR» == */
 .calendar-popup {
     display: none;
@@ -196,8 +210,8 @@ body{
     display: flex;
     flex-direction: column;
     width: 300px;
-    padding: 30px;
-    gap: 40px;
+    padding: 2rem;
+    gap: 2.5rem;
     background: var(--primary-light);
     border: 1px solid var(--primary-color);
     pointer-events: auto;
@@ -213,24 +227,21 @@ body{
 .calendar-popup__links {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 1rem;
 }
 .calendar-link {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 12px;
-    padding: 12px;
+    gap: 1rem;
+    padding: 1.2rem;
     border: 1px solid var(--primary-color);
-    text-decoration: none;
-    color: #333;
 }
 .calendar-popup__icon{
     color: var(--primary-color);
 }
 .calendar-link:hover {
     background: var(--primary-gradient);
-    color: var(--primary-light);
     border: 1px solid var(--primary-light);
 }
 .calendar-link:hover .calendar-popup__icon {
@@ -238,31 +249,27 @@ body{
 }
 
 /* == MEDIA QUERIES ==*/
-@media (max-width: 480px) {
+@media (width < 480px) {
 
-    .h1 {font-size: 12vw;}
-    .h2 {font-size: 32px;}
-    .label {font-size: 20px;}
-    .paragraph {font-size: 16px;}
+    h1 {font-size: 3.2rem;}
+    h2 {font-size: 2.8rem;}
+    span {font-size: 1.2rem;}
+    a {font-size: 1.2rem;}
 
-    .icon--xxl { width: 36px; height: 36px; }
-    .icon--xl { width: 18px; height: 18px; }
-    .icon--md { width: 16px; height: 16px; }
+    .icon--xl { width: 36px; height: 36px; }
+    .icon--md { width: 18px; height: 18px; }
 
     body{
         flex-direction: column;
-        margin: 20px auto 20px auto;
-        gap: 30px;
+        margin: 1.5rem auto 1.5rem auto;
     }
-
     .main-block {
         flex-direction: column-reverse;
         justify-content: space-between;
     }
     .main-block__text-content {
         flex-direction: column;
-        gap: 10px;
-        padding: 30px 20px;
+        padding: 1.2rem;
     }
     .img {
         width: 100%;
@@ -272,15 +279,13 @@ body{
     }
     .cards-block {
         flex-direction: column;
-        gap: 30px;
     }
     .info-card {
         width: auto;
-        padding: 20px 20px;
-        gap: 10px;
+        padding: 1rem;
     }
-    .info-card__point {
-        gap: 12px;
+    .info-card__content {gap: 0.8rem;}
+    .info-card__button {
+    padding: 0.8rem 0rem;
     }
-
 }

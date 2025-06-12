@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-
+  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -17,26 +17,29 @@
   <meta name="twitter:description" content="Будем счастливы видеть вас на церемонии бракосочетания!" />
   <meta name="twitter:image" content="/images/og_image.jpg" />
 
-  <!-- Стандартные иконки -->
+  <!-- Favicons -->
   <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
 
-  <!-- Для Apple (Safari) -->
+  <!-- For Apple (Safari) -->
   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" sizes="180x180">
 
-  <!-- Для Android -->
+  <!-- For Android -->
   <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Заголовок страницы -->
+  <!-- Page Title -->
   <title>Михаил & Екатерина — Wedding Invite</title>
 
-  <!-- Шрифты -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   
-  <!-- Стили -->
+  <!-- Music -->
+  <audio id="background-music" src="/audio/music.mp3" loop></audio>
+
+  <!-- Style -->
   <link rel="stylesheet" href="/style.css" />
 
 </head>
@@ -106,113 +109,121 @@
   </svg>
 
   <!-- «BUTTON SOUND CONTROL» -->
-  <audio id="background-music" src="/audio/music.mp3" loop></audio>
-
   <div class="button-sound-control">
-    <svg class="button-sound-control__icon icon--xxl"><use href="#icon-play"></use></svg>
+    <svg class="button-sound-control__icon icon--xl"><use href="#icon-play"></use></svg>
   </div>
 
   <!-- FIRST SCREEN -->
-  <div class="main-block">
+  <section class="main-block">
+
     <div class="main-block__text-content">
-      <div class="main-block__title h1">МИХАИЛ & ЕКАТЕРИНА</div>
-      <div class="main-block__text label">Приглашют вас на&nbsp;церемонию бракосочетания. Разделите с&nbsp;нами этот важный момент.</div>
+      <h1 class="main-block__title">МИХАИЛ & ЕКАТЕРИНА</h1>
+      <span>Приглашют вас на&nbsp;церемонию бракосочетания. Разделите с&nbsp;нами этот важный момент!</span>
     </div>
-    <img class="img" src="/images/main.jpg" alt="couple">
-  </div>
+    <img class="img" src="/images/main.jpg" alt="Пара влюблённых на качелях">
+  
+  </section>
 
   <!-- CARDS -->
-  <div class="cards-block">
-    <div class="info-card">
-      <div class="info-card__title h2">ВРЕМЯ</div>
+  <section class="cards-block">
+    
+    <article class="info-card">
+      <h2>ВРЕМЯ</h2>
       <div class="info-card__content">
         <div class="info-card__point">
-          <svg class="info-card__icon icon--xl"><use href="#icon-calendar"></use></svg>
-          <div class="label">18 июля 2025 года</div>
+          <svg class="info-card__icon icon--md"><use href="#icon-calendar"></use></svg>
+          <span>18 июля 2025 года</span>
         </div>
         <div class="info-card__point">
-          <svg class="info-card__icon icon--xl"><use href="#icon-watch"></use></svg>
-          <div class="label">15:00 по МСК</div>         
+          <svg class="info-card__icon icon--md"><use href="#icon-watch"></use></svg>
+          <span>15:00 по МСК</span>   
         </div>
       </div>
-      <a class="info-card__button label" href="#calendar-popup">
+      <a class="info-card__button" href="#calendar-popup">
       <svg class="button__icon icon--md"><use href="#icon-plus"></use></svg>
         Добавить в календарь
       </a>
-    </div>
+    </article>
     
-    <div class="info-card">
-      <div class="h2">МЕСТО</div>
+    <article class="info-card">
+      <h2>МЕСТО</h2>
       <div class="info-card__content">
         <div class="info-card__point">
-          <svg class="info-card__icon icon--xl"><use href="#icon-home"></use></svg>
-          <div class="label">ЗАГС Кировского р-на</div>
+          <svg class="info-card__icon icon--md"><use href="#icon-home"></use></svg>
+          <span>ЗАГС Кировского р-на</span>
         </div>
         <div class="info-card__point">
-          <svg class="info-card__icon icon--xl"><use href="#icon-location"></use></svg>
-          <div class="label">Проспект Стачек, 45</div>         
+          <svg class="info-card__icon icon--md"><use href="#icon-location"></use></svg>
+          <span>Проспект Стачек, 45</span>         
         </div>
       </div>
-      <a class="info-card__button label" href="https://yandex.ru/maps/?rtext=~59.885900,30.265221" target="_blank">
+      <a class="info-card__button" href="https://yandex.ru/maps/?rtext=~59.885900,30.265221" target="_blank">
         <svg class="button__icon icon--md"><use href="#icon-arrow"></use></svg>
         Построить маршрут
       </a>
-    </div>
-  </div>
+    </article>
+
+  </section>
 
   <!-- ACCORDEON -->
-  <div class="info-block">
-    <div class="h2">ИНФОРМАЦИЯ</div>
+  <section class="info-block">
+    <h2>ИНФОРМАЦИЯ</h2>
     <div class="info-block__content">
       <div class="info-block__point">
-        <div class="info-block__question label">
+        <span class="info-block__question">
           Дресс-код
-          <svg class="accordeon__icon icon--xl"><use href="#icon-plus"></use></svg>
-        </div>
-        <div class="info-block__answer paragraph">Никаких ограничений&nbsp;&mdash; приходите в&nbsp;любой удобной одежде 🙂</div>  
+          <svg class="accordeon__icon icon--md"><use href="#icon-plus"></use></svg>
+        </span>
+        <p class="info-block__answer">
+          Никаких ограничений&nbsp;&mdash; приходите в&nbsp;любой удобной одежде 🙂<br><br>
+        </p>
       </div>
       <div class="info-block__point">
-        <div class="info-block__question label">
+        <span class="info-block__question">
           Программа мероприятия
-          <svg class="accordeon__icon icon--xl"><use href="#icon-plus"></use></svg>
-        </div>
-        <div class="info-block__answer paragraph">1. Торжественная церемония бракосочетания в&nbsp;ЗАГС ❤️<br>2. Фотосессия, тёплое общение и&nbsp;дегустация игристого в&nbsp;сквере 🌳</div>  
+          <svg class="accordeon__icon icon--md"><use href="#icon-plus"></use></svg>
+        </span>
+        <p class="info-block__answer">
+          1. Торжественная церемония бракосочетания в&nbsp;ЗАГС ❤️<br>2. Фотосессия, тёплое общение и&nbsp;дегустация игристого в&nbsp;сквере 🌳<br><br>
+        </p>
       </div>
       <div class="info-block__point">
-        <div class="info-block__question label">
+        <span class="info-block__question">
           Пожелания
-          <svg class="accordeon__icon icon--xl"><use href="#icon-plus"></use></svg>
-        </div>
-        <div class="info-block__answer paragraph">После мероприятия мы&nbsp;отправимся в&nbsp;путешествие, поэтому просим не&nbsp;дарить на&nbsp;праздник цветы.<br><br>Мы&nbsp;не&nbsp;успеем насладиться их&nbsp;красотой 😢</div>  
+          <svg class="accordeon__icon icon--md"><use href="#icon-plus"></use></svg>
+        </span>
+        <p class="info-block__answer">
+          Просим не&nbsp;дарить цветы. После мероприятия мы&nbsp;отправимся в&nbsp;путешествие, поэтому не&nbsp;успеем насладиться их&nbsp;красотой 😢<br><br>
+        </p>
       </div>
     </div>
-  </div>
+  </section>
 
   <div class="label">БУДЕМ СЧАСТЛИВЫ ВИДЕТЬ ВАС!</div>
 
   <!-- MODAL WINDOW «ADD TO CALENDAR» -->
-  <div class="calendar-popup">
+  <section class="calendar-popup">
     <div class="calendar-popup__content">
-      <div class="calendar-popup__title label">
+      <span class="calendar-popup__title">
         Какой календарь?
-        <svg class="calendar-popup__icon icon--xl close"><use href="#icon-close"></use></svg>
-      </div>
-      <div class="calendar-popup__links paragraph">
+        <svg class="calendar-popup__icon icon--md close"><use href="#icon-close"></use></svg>
+      </span>
+      <div class="calendar-popup__links">
         <a class="calendar-link" href="https://calendar.google.com/calendar/r/eventedit?text=Свадьба+Михаила+и+Екатерины&dates=20250718T120000Z/20250718T150000Z&details=Дресс-код+свободный.+Желательно+без+цветов.&location=пр.+Стачек,+45,+Санкт-Петербург,+Россия,+198095" target="_blank">
-          <svg class="calendar-popup__icon icon--xl"><use href="#icon-google"></use></svg>
+          <svg class="calendar-popup__icon icon--md"><use href="#icon-google"></use></svg>
           Google Calendar
         </a>
         <a class="calendar-link" href="/sources/wedding.ics" target="_blank">
-          <svg class="calendar-popup__icon icon--xl"><use href="#icon-apple"></use></svg>
+          <svg class="calendar-popup__icon icon--md"><use href="#icon-apple"></use></svg>
           Apple Calendar
         </a>
         <a class="calendar-link" href="https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&subject=Свадьба+Михаила+и+Екатерины&body=Дресс-код+свободный.+Желательно+без+цветов.&startdt=2025-07-18T12:00:00Z&enddt=2025-07-18T15:00:00Z&location=пр.+Стачек,+45,+Санкт-Петербург,+Россия,+198095" target="_blank">
-          <svg class="calendar-popup__icon icon--xl"><use href="#icon-outlook"></use></svg>
+          <svg class="calendar-popup__icon icon--md"><use href="#icon-outlook"></use></svg>
           Outlook Calendar
         </a>
       </div>
     </div>
-  </div>
+  </section>
 
 </body>
 
