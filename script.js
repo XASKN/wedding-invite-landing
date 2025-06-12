@@ -49,35 +49,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // === SOUND CONTROL ===
-document.addEventListener('DOMContentLoaded', function() {
-  const audio = document.getElementById('background-music');
-  const soundControl = document.querySelector('.button-sound-control');
-  const soundIcon = soundControl.querySelector('.button-sound-control__icon use');
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("background-music");
+  const control = document.querySelector(".button-sound-control .button-sound-control__icon use");
+
   let isPlaying = false;
 
-  const toggleAudio = (play) => {
-    if (play) {
+  document.querySelector(".button-sound-control").addEventListener("click", () => {
+    if (!isPlaying) {
       audio.play();
-      soundIcon.setAttribute('href', '#icon-pause');
-      isPlaying = true;
+      control.setAttribute("href", "#icon-pause");
     } else {
       audio.pause();
-      soundIcon.setAttribute('href', '#icon-play');
-      isPlaying = false;
+      control.setAttribute("href", "#icon-play");
     }
-  };
-
-  const unlockAudio = () => {
-    if (!isPlaying) {
-      toggleAudio(true);
-      document.removeEventListener('click', unlockAudio);
-    }
-  };
-
-  document.addEventListener('click', unlockAudio);
-  soundControl.addEventListener('click', function(e) {
-    e.stopPropagation();
-    toggleAudio(audio.paused);
+    isPlaying = !isPlaying;
   });
 });
+
 
